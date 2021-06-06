@@ -7,3 +7,4 @@ class ArticlesController < ApplicationController
 
  
 end
+
