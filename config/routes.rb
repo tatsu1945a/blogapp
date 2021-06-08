@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   #get '/' => 'home#index'
   root to: 'articles#index'
 
+  resources :articles, only: [:show]
+
 end
 
 

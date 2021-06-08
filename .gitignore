@@ -70,4 +70,5 @@ yarn-debug.log*
 !/storage/.keep
 /public/uploads
 
-
+# Ignore uploaded files in development
+/config/database.yml
