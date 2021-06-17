@@ -1,17 +1,19 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
-
+  before_action :set_article, only: %i[show edit update]
 
   def index
+    # binding.pry
+    #raise StanderdError
     @articles = Article.all
   end
 
   def show
-    #@article = Article.find(params[:id])
+    # binding.pry
+    # @article = Article.find(params[:id])
   end
- 
+
   def new
-    @article = Article.new    
+    @article = Article.new
   end
 
   def create
@@ -25,11 +27,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    #@article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
   end
 
   def update
-    #@article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
     if @article.update(article_params)
       redirect_to article_path(@article), notice: '更新できた'
     else
@@ -44,8 +46,10 @@ class ArticlesController < ApplicationController
     redirect_to root_path, notice: '削除成功しました'
   end
 
-
+  #プライベートここから
+  # 日本語
   private
+
   def article_params
     params.require(:article).permit(:title, :content)
   end
@@ -53,6 +57,4 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
-
 end
-
